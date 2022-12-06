@@ -1,6 +1,6 @@
-using MessageBoardApp.CQRS;
-using MessageBoardApp.Infrastructure.Contexts;
+using AppApi.CQRS;
 using MediatR;
+using MessageBoardApp.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,9 +14,9 @@ services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 
 if (builder.Environment.IsDevelopment())
-    services.AddDbContext<BaseDbContext>(options => options.UseInMemoryDatabase("BaseDatabase"));
+    services.AddDbContext<MessageDbContext>(options => options.UseInMemoryDatabase("BaseDatabase"));
 else
-    services.AddDbContext<BaseDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("BaseDatabase")));
+    services.AddDbContext<MessageDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("BaseDatabase")));
 
 services.AddMediatR(typeof(CqrsAssemblyMarker));
 

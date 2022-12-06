@@ -1,4 +1,4 @@
-﻿namespace MessageBoardApp.Domain.Abstractions;
+﻿namespace AppApi.Domain.Abstractions;
 
 public interface IEntity 
 {

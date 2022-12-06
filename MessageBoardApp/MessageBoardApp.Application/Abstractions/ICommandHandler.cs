@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace MessageBoardApp.Abstractions;
+namespace AppApi.Abstractions;
 
 public interface ICommandHandler<in TCommand, TResponse> : IRequestHandler<TCommand, TResponse>
     where TCommand : ICommand<TResponse>
