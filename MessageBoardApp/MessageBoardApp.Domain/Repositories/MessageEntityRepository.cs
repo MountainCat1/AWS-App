@@ -3,7 +3,7 @@ using AppApi.Domain.Entities;
 
 namespace AppApi.Domain.Repositories;
 
-public interface IMessageEntityRepository :  IRepository<MessageEntity>
+public interface IBoardMessageRepository :  IRepository<BoardMessageEntity>
 {
     // Intentionally empty
 }

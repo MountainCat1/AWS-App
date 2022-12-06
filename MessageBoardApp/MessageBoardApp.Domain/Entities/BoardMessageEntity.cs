@@ -3,7 +3,7 @@ using AppApi.Domain.Abstractions;
 
 namespace AppApi.Domain.Entities;
 
-public class MessageEntity : IEntity
+public class BoardMessageEntity : IEntity
 {
     [Key]
     public Guid Guid { get; set; }

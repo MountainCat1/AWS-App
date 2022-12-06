@@ -1,6 +1,9 @@
+using AppApi;
 using AppApi.CQRS;
+using AppApi.Domain.Repositories;
 using MediatR;
 using MessageBoardApp.Infrastructure.Contexts;
+using MessageBoardApp.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +21,11 @@ if (builder.Environment.IsDevelopment())
 else
     services.AddDbContext<MessageDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("BaseDatabase")));
 
+services.AddScoped<IBoardMessageRepository, BoardMessageRepository>();
+services.AddAutoMapper(typeof(MappingProfile));
+
 services.AddMediatR(typeof(CqrsAssemblyMarker));
+
 
 var app = builder.Build();
 

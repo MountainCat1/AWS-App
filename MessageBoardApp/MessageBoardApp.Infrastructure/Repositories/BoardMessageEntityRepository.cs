@@ -6,9 +6,9 @@ using MessageBoardApp.Infrastructure.Generics;
 
 namespace MessageBoardApp.Infrastructure.Repositories;
 
-public class MessageEntityRepository : Repository<MessageEntity, MessageDbContext>, IMessageEntityRepository
+public class BoardMessageRepository : Repository<BoardMessageEntity, MessageDbContext>, IBoardMessageRepository
 {
-    public MessageEntityRepository(MessageDbContext dbContext) : base(dbContext)
+    public BoardMessageRepository(MessageDbContext dbContext) : base(dbContext)
     {
     }
 }
