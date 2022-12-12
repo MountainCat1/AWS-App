@@ -20,7 +20,7 @@ public class CommandTests
     }
 
     [Test]
-    public async Task Test1()
+    public async Task Test_CreateBoardMessageCommandHandler()
     {
         // Arrange
         const string message = "Some message";
