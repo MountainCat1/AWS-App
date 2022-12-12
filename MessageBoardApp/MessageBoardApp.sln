@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardApp.Domain", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardApp.Infrastructure", "MessageBoardApp.Infrastructure\MessageBoardApp.Infrastructure.csproj", "{B87972DC-7AF2-4ADD-8EE4-5BBC1712A583}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardApp_Tests", "MessageBoardApp_Tests\MessageBoardApp_Tests.csproj", "{576967DA-2754-4843-B738-554C177B6EDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{B87972DC-7AF2-4ADD-8EE4-5BBC1712A583}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B87972DC-7AF2-4ADD-8EE4-5BBC1712A583}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B87972DC-7AF2-4ADD-8EE4-5BBC1712A583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{576967DA-2754-4843-B738-554C177B6EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{576967DA-2754-4843-B738-554C177B6EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{576967DA-2754-4843-B738-554C177B6EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{576967DA-2754-4843-B738-554C177B6EDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
