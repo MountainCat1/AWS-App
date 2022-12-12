@@ -40,12 +40,3 @@ steps:
     appType: 'webApp'
     WebAppName: 'PublicBoard-WebApp-DEV'
     packageForLinux: "$(build.artifactStagingDirectory)/**/*.zip"
-
-#- task: AzureRmWebAppDeployment@4
-#  inputs:
-#    ConnectionType: 'AzureRM'
-#    azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
-#    appType: 'webApp'
-#    WebAppName: 'PublicBoard'
-#    packageForLinux: "$(build.artifactStagingDirectory)/**/*.zip"
-#    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
