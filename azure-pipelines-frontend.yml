@@ -31,7 +31,7 @@ steps:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/BuildArtifacts/$(Build.BuildId).zip'
     replaceExistingArchive: true
 
 - task: AzureRmWebAppDeployment@4
