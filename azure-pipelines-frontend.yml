@@ -41,6 +41,6 @@ steps:
     azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
     appType: 'webAppLinux'
     WebAppName: 'PublicBoard-Frontend-Dev'
-    packageForLinux: '$(System.ArtifactStagingDirectory)/**/*.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     RuntimeStack: 'NODE|16-lts'
     StartupCommand: 'npm start'
