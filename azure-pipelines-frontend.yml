@@ -16,8 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-  displayName: 'npm install'
+    npm ci --save
+  displayName: 'npm ci --save'
   workingDirectory: 'message-board-frontend'
 
 - script: |
@@ -25,22 +25,35 @@ steps:
   displayName: 'npm build'
   workingDirectory: 'message-board-frontend'
 
-- task: ArchiveFiles@2
-  displayName: 'Create Artifact'
-  inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/BuildArtifacts/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+# - task: ArchiveFiles@2
+#   displayName: 'Create Artifact'
+#   inputs:
+#     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+#     includeRootFolder: true
+#     archiveType: 'zip'
+#     archiveFile: '$(Build.ArtifactStagingDirectory)/BuildArtifacts/$(Build.BuildId).zip'
+#     replaceExistingArchive: true
 
-- task: AzureRmWebAppDeployment@4
-  displayName: 'Deploy to Azure Web App'
+- task: PublishBuildArtifacts@1
   inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
-    appType: 'webAppLinux'
-    WebAppName: 'PublicBoard-Frontend-Dev'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-    RuntimeStack: 'NODE|16-lts'
-    StartupCommand: 'npm start'
+    PathtoPublish: 'message-board-frontend/build'
+    ArtifactName: 'FrontEnd-Drop-$(Build.BuildId)'
+    publishLocation: 'Container'
+
+- task: AzureStaticWebApp@0
+  inputs:
+    workingDirectory: 'message-board-frontend/build'
+    skip_app_build: true
+    azure_static_web_apps_api_token: '$(deployment_token)'
+
+
+# - task: AzureRmWebAppDeployment@4
+#   displayName: 'Deploy to Azure Web App'
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
+#     appType: 'webAppLinux'
+#     WebAppName: 'PublicBoard-Frontend-DEV'
+#     packageForLinux: 'message-board-frontend/build'
+#     RuntimeStack: 'NODE|16-lts'
+#     StartupCommand: 'npm start'
