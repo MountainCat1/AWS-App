@@ -17,16 +17,16 @@ steps:
 
 - script: |
     npm install
-    npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm install'
   workingDirectory: 'message-board-frontend'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: 'message-board-frontend'
+- script: |
+    npm run build
+  displayName: 'npm build'
+  workingDirectory: 'message-board-frontend'
 
 - task: ArchiveFiles@2
+  displayName: 'Create Artifact'
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: true
@@ -35,6 +35,7 @@ steps:
     replaceExistingArchive: true
 
 - task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy to Azure Web App'
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
