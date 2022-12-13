@@ -37,7 +37,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
    # PathtoPublish: '$(System.DefaultWorkingDirectory)/build'
-    PathtoPublish: 'build'
+    PathtoPublish: 'message-board-frontend/build'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
