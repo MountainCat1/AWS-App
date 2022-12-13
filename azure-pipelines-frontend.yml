@@ -17,7 +17,7 @@ steps:
 
 - script: |
     npm ci --save
-  displayName: 'npm install'
+  displayName: 'npm install -g serve'
   workingDirectory: 'message-board-frontend'
 
 - script: |
@@ -40,13 +40,21 @@ steps:
     ArtifactName: 'FrontEnd-Drop-$(Build.BuildId)'
     publishLocation: 'Container'
 
-- task: AzureRmWebAppDeployment@4
-  displayName: 'Deploy to Azure Web App'
+- task: AzureStaticWebApp@0
   inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
-    appType: 'webAppLinux'
-    WebAppName: 'PublicBoard-Frontend-DEV'
-    packageForLinux: 'message-board-frontend/build'
-    RuntimeStack: 'NODE|16-lts'
-    StartupCommand: 'npm start'
+    workingDirectory: 'message-board-frontend/build'
+    skip_app_build: true
+    app_location: frontend
+    azure_static_web_apps_api_token: '$(deployment_token)'
+
+
+# - task: AzureRmWebAppDeployment@4
+#   displayName: 'Deploy to Azure Web App'
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
+#     appType: 'webAppLinux'
+#     WebAppName: 'PublicBoard-Frontend-DEV'
+#     packageForLinux: 'message-board-frontend/build'
+#     RuntimeStack: 'NODE|16-lts'
+#     StartupCommand: 'npm start'
