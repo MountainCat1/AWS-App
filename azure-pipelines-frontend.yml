@@ -36,7 +36,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/BuildArtifacts/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
     ArtifactName: 'FrontEndArtifact_$(Build.BuildId)'
     publishLocation: 'Container'
 
@@ -47,6 +47,6 @@ steps:
     azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
     appType: 'webAppLinux'
     WebAppName: 'PublicBoard-Frontend-Dev'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)'
     RuntimeStack: 'NODE|16-lts'
     StartupCommand: 'npm start'
