@@ -17,7 +17,7 @@ steps:
 
 - script: |
     npm ci --save
-  displayName: 'npm install -g serve'
+  displayName: 'npm ci --save'
   workingDirectory: 'message-board-frontend'
 
 - script: |
