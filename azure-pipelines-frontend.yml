@@ -25,3 +25,21 @@ steps:
   inputs:
     command: 'install'
     workingDir: 'message-board-frontend'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
+    appType: 'webAppLinux'
+    WebAppName: 'PublicBoard-Frontend-Dev'
+    packageForLinux: '$(System.ArtifactStagingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|16-lts'
+    StartupCommand: 'npm start'
