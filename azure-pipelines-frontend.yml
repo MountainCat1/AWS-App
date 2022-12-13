@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
+    npm ci --save
   displayName: 'npm install'
   workingDirectory: 'message-board-frontend'
 
@@ -33,6 +33,12 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/BuildArtifacts/$(Build.BuildId).zip'
     replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/BuildArtifacts/$(Build.BuildId).zip'
+    ArtifactName: 'FrontEndArtifact_$(Build.BuildId)'
+    publishLocation: 'Container'
 
 - task: AzureRmWebAppDeployment@4
   displayName: 'Deploy to Azure Web App'
