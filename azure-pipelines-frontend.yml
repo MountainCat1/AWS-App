@@ -44,7 +44,6 @@ steps:
   inputs:
     workingDirectory: 'message-board-frontend/build'
     skip_app_build: true
-    app_location: frontend
     azure_static_web_apps_api_token: '$(deployment_token)'
 
 
