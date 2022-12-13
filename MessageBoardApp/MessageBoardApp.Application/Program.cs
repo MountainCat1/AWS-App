@@ -36,10 +36,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(x => x
+    .WithOrigins(configuration.GetValue<string>("AllowedOrigins").Split(";"))
+    .AllowAnyMethod()
+    .AllowCredentials()
+    .AllowAnyHeader());
 
 app.Run();

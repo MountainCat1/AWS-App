@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {useGetMessages} from "./services/board";
 
 function App() {
+  const getMessages = useGetMessages();
+
+  getMessages().then(x => {
+    console.log(x)
+  })
+
   return (
     <div className="App">
       <header className="App-header">
