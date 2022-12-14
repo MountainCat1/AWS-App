@@ -47,4 +47,12 @@ steps:
     azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az webapp config appsettings set --name PublicBoard-WebApp-DEV --resource-group PublicBoard_DEV --setting-names "ASPNETCORE_ALLOWED_ORIGINS=https://calm-glacier-0db670103.2.azurestaticapps.net"'
+    inlineScript: 'az webapp config appsettings set -g PublicBoard_DEV -n PublicBoard-WebApp-DEV --settings WEBSITE_NODE_DEFAULT_VERSION=6.9.1'
+
+- task: AzureCLI@2
+  displayName: "Set Environemt Varaibles"
+  inputs:
+    azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
+    scriptType: 'pscore'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az webapp config appsettings set -g PublicBoard_DEV -n PublicBoard-WebApp-DEV --settings ASPNETCORE_ALLOWED_ORIGINS=https://calm-glacier-0db670103.2.azurestaticapps.net'
