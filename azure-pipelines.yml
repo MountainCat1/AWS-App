@@ -40,3 +40,11 @@ steps:
     appType: 'webApp'
     WebAppName: 'PublicBoard-WebApp-DEV'
     packageForLinux: "$(build.artifactStagingDirectory)/**/*.zip"
+
+- task: AzureCLI@2
+  displayName: "Set Environemt Varaibles"
+  inputs:
+    azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
+    scriptType: 'pscore'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az staticwebapp appsettings set --name "PublicBoard-WebApp-DEV" --setting-names "ASPNETCORE_ALLOWED_ORIGINS=https://calm-glacier-0db670103.2.azurestaticapps.net"'
