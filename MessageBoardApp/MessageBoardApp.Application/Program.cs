@@ -36,8 +36,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -45,7 +43,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseCors(x => x
-    .WithOrigins(configuration.GetValue<string>("AllowedOrigins").Split(";"))
+    .WithOrigins(Environment.GetEnvironmentVariable("ASPNETCORE_ALLOWED_ORIGINS")?.Split(";") ?? Array.Empty<string>())
     .AllowAnyMethod()
     .AllowCredentials()
     .AllowAnyHeader());
