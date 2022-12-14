@@ -34,7 +34,7 @@ steps:
 - task: AzureStaticWebApp@0
   inputs:
     workingDirectory: 'message-board-frontend/build'
-    skip_app_build: true
+    skip_app_build: false
     azure_static_web_apps_api_token: '$(deployment_token)'
     deployment_environment: "Development"
 
