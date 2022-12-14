@@ -44,3 +44,14 @@ steps:
 #     workingDirectory: 'message-board-frontend/build'
 #     skip_app_build: true
 #     azure_static_web_apps_api_token: '$(deployment_token)'
+
+- task: AzureStaticWebApp@0
+  displayName: 'Static Web App:'
+  inputs:
+    workingDirectory: '$(System.DefaultWorkingDirectory)/MountainCat1.DevOpsApp.Backend/drop'
+    skip_app_build: false
+    skip_api_build: true
+    is_static_export: false
+    verbose: false
+    azure_static_web_apps_api_token: '${deploment_token}'
+
