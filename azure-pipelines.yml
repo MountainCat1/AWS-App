@@ -47,4 +47,4 @@ steps:
     azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az webapp appsettings set --name "PublicBoard-WebApp-DEV" --setting-names "ASPNETCORE_ALLOWED_ORIGINS=https://calm-glacier-0db670103.2.azurestaticapps.net"'
+    inlineScript: 'az webapp config appsettings set --name "PublicBoard-WebApp-DEV" --setting-names "ASPNETCORE_ALLOWED_ORIGINS=https://calm-glacier-0db670103.2.azurestaticapps.net"'
