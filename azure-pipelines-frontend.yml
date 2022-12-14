@@ -38,3 +38,11 @@ steps:
     azure_static_web_apps_api_token: '$(deployment_token)'
     deployment_environment: "Development"
 
+- task: AzureCLI@2
+  displayName: "Set Environemt Varaibles"
+  inputs:
+    azureSubscription: 'Azure for Students(e0a01be8-bdd1-4e00-bd3f-ee558f97e070)'
+    scriptType: 'pscore'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az staticwebapp appsettings set --name "PublicBoard-Frontend-StaticWebApp-DEV" --setting-names "message=Hello world"'
+
