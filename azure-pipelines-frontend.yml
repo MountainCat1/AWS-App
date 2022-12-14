@@ -36,8 +36,6 @@ steps:
     workingDirectory: 'message-board-frontend/build'
     skip_app_build: true
     azure_static_web_apps_api_token: '$(deployment_token)'
-    deployment_environment: "Development"
-
 - task: AzureCLI@2
   displayName: "Set Environemt Varaibles"
   inputs:
