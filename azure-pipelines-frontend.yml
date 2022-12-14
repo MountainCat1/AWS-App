@@ -25,16 +25,16 @@ steps:
   displayName: 'npm build'
   workingDirectory: 'message-board-frontend'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'message-board-frontend/build'
-    ArtifactName: 'FrontEnd-Drop-$(Build.BuildId)'
-    publishLocation: 'Container'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: 'message-board-frontend/build'
+#     ArtifactName: 'FrontEnd-Drop-$(Build.BuildId)'
+#     publishLocation: 'Container'
 
 - task: AzureStaticWebApp@0
   inputs:
     workingDirectory: 'message-board-frontend/build'
-    skip_app_build: false
+    skip_app_build: true
     azure_static_web_apps_api_token: '$(deployment_token)'
     deployment_environment: "Development"
 
