@@ -17,7 +17,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <p>{process.env.REACT_APP_API_URL}</p>
+        <p>var - {process.env.REACT_APP_API_URL}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
