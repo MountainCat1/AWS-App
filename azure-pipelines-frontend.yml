@@ -27,9 +27,8 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'builds/message-board-frontend'
-    # ArtifactName: 'FrontEnd-Drop-$(Build.BuildId)'
-    ArtifactName: 'drop'
+    PathtoPublish: 'message-board-frontend'
+    ArtifactName: 'FrontEnd-Drop-$(Build.BuildId)'
     publishLocation: 'Container'
 
 # - task: AzureCLI@2
