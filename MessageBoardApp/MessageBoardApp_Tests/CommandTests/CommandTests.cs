@@ -1,5 +1,4 @@
-﻿using AppApi;
-using AppApi.CQRS.Commands.CreateBoardMessage;
+﻿using AppApi.CQRS.Commands.CreateBoardMessage;
 using AppApi.Domain.Entities;
 using AppApi.Domain.Repositories;
 using AppApi.Dtos;

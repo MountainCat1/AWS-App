@@ -2,7 +2,6 @@
 using AppApi.CQRS.Queries.GetAllBoardMessages;
 using AppApi.Dtos;
 using MediatR;
-using MessageBoardApp.Infrastructure.Generics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppApi.Controllers;

@@ -2,7 +2,6 @@
 using AppApi.Domain.Repositories;
 using AppApi.Dtos;
 using AutoMapper;
-using MessageBoardApp.Infrastructure.Repositories;
 
 namespace AppApi.CQRS.Queries.GetAllBoardMessages;
 

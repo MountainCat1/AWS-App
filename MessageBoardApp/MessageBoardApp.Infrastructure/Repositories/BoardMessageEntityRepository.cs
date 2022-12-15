@@ -1,5 +1,4 @@
-﻿using AppApi.Domain.Abstractions;
-using AppApi.Domain.Entities;
+﻿using AppApi.Domain.Entities;
 using AppApi.Domain.Repositories;
 using MessageBoardApp.Infrastructure.Contexts;
 using MessageBoardApp.Infrastructure.Generics;

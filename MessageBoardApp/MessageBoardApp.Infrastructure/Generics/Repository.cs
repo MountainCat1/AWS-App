@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 using AppApi.Domain.Abstractions;
-using MessageBoardApp.Infrastructure.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace MessageBoardApp.Infrastructure.Generics;
