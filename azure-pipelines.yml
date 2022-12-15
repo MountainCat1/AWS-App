@@ -26,7 +26,7 @@ steps:
   displayName: 'Build Application'
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:EnvironmentName=Development /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    msbuildArgs: '/p:EnvironmentName=Development /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build_output_path)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     
@@ -38,8 +38,8 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    PathtoPublish: '$(build_output_path)'
+    ArtifactName: 'BackEnd-Drop-$(Build.BuildId)'
     publishLocation: 'Container'
 
 # - task: AzureCLI@2
