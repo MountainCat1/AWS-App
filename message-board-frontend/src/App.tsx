@@ -1,14 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {useGetMessages} from "./services/board";
+import MessageList from "./components/MessageList/MessageList";
 
 function App() {
-  const getMessages = useGetMessages();
-
-  getMessages().then(x => {
-    console.log(x)
-  })
 
   return (
     <div className="App">
@@ -17,7 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <p>I LOVE SEX</p>
+        <p><MessageList/></p>
         <p>var - {process.env.REACT_APP_API_URL}</p>
         <a
           className="App-link"
