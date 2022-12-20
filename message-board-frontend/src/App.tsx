@@ -9,11 +9,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <div>
           Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p><MessageList/></p>
-        <p>var - {process.env.REACT_APP_API_URL}</p>
+        </div>
+        <div><MessageList/></div>
+        <div>var - {process.env.REACT_APP_API_URL}</div>
         <a
           className="App-link"
           href="https://reactjs.org"
