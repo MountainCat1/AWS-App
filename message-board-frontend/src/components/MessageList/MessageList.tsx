@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import {BoardMessageDto} from "../../dto/boardMessage";
 import {useGetMessagesApi} from "../../services/boardApi";
+import BoardMessageListItem from "../BoardMessageListItem/BoardMessageListItem";
+import './BoardMessageItemList.css';
 
 
 export default function (){
@@ -19,14 +21,16 @@ export default function (){
     }, [])
 
 
-    return (<>
-        SEX {messages.length}
-        {messages.map(x =>
-             <div key={x.guid}>
-                <span>{x.guid}</span>
-                <span>{x.text}</span>
-                <span>{x.postTime}</span>
-            </div>
-        )}
-    </>)
+    return (<div className={'board-message-list'}>
+        <div className={'board-message-list-header'}>Message count: {messages.length}</div>
+        <div className={'board-message-list-body'}>
+            {messages.map(x =>
+                <BoardMessageListItem dto={x} key={x.guid}/>
+            )}
+        </div>
+        <div className={'board-message-list-input-container'}>
+            <input className={'board-message-list-input'}/>
+        </div>
+
+    </div>)
 }
