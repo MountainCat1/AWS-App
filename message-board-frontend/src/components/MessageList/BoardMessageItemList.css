@@ -1,0 +1,65 @@
+.board-message-list {
+    background-color: var(--color-1);
+
+    box-shadow: 4px 4px 24px 0 rgba(0, 0, 0, 0.57);
+
+    overflow: hidden;
+
+}
+.board-message-list-header {
+    font-size: 30px;
+    background-color: var(--color-1);
+
+    box-shadow: 0 20px 24px 0 rgba(0, 0, 0, 0.57);
+
+    z-index: 10;
+}
+
+.board-message-list-body {
+    display: flex;
+    flex-direction: column-reverse;
+
+    height: 60vh;
+
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.board-message-list-item {
+    background-color: var(--color-2);
+
+    font-size: 20px;
+
+    text-align: left;
+
+    width: 20em;
+    height: 3em;
+    padding: 0.2em;
+
+    box-shadow: 0 20px 24px 0 rgba(0, 0, 0, 0.18);
+}
+
+.board-message-list-item-date {
+    text-align: right;
+    font-size: 15px;
+}
+
+.board-message-list-input-container {
+    display: flex;
+    background-color: var(--color-3);
+    padding: .4em;
+}
+.board-message-list-input {
+    width: 100%;
+
+
+    border: none;
+
+    font-family: "Net-Brown-Regular", serif;
+    outline: none;
+
+    font-size: 20px;
+}
+
+.board-message-list-input:focus {
+    border: none;
+}

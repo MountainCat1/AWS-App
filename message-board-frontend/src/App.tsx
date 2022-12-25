@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {useGetMessages} from "./services/board";
+import MessageList from "./components/MessageList/MessageList";
 
 function App() {
-  const getMessages = useGetMessages();
-
-  getMessages().then(x => {
-    console.log(x)
-  })
 
   return (
     <div className="App">
+
+
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <div><MessageList/></div>
+      {/*  <div>var - {process.env.REACT_APP_API_URL}</div>*/}
+
+        {/*<img src={logo} className="App-logo" alt="logo" />
+        <div>
           Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>I LOVE SEX</p>
-        <p>var - {process.env.REACT_APP_API_URL}</p>
+        </div>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -26,7 +23,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a>*/}
       </header>
     </div>
   );
