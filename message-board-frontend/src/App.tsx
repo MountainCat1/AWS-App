@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import MessageList from "./components/MessageList/MessageList";
+import SocketTest from "./components/SocketTest/SocketTest";
 
 function App() {
 
   return (
     <div className="App">
-
+        <SocketTest/>
 
       <header className="App-header">
         <div><MessageList/></div>

@@ -42,6 +42,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseWebSockets();
+
 app.UseCors(x => x
     .WithOrigins(Environment.GetEnvironmentVariable("ASPNETCORE_ALLOWED_ORIGINS")?.Split(";") ?? Array.Empty<string>())
     .AllowAnyMethod()
