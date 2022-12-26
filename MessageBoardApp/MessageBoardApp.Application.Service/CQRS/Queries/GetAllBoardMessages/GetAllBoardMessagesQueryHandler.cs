@@ -1,4 +1,4 @@
-﻿using AppApi.Domain.Repositories;
+﻿using MessageBoardApp.Application.Domain.Repositories;
 using AutoMapper;
 using MessageBoardApp.Application.Service.Abstractions;
 using MessageBoardApp.Application.Service.Dtos;

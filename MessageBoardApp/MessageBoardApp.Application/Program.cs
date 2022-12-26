@@ -1,6 +1,6 @@
-using AppApi;
-using AppApi.Domain.Repositories;
-using AppApi.WebSockets;
+using MessageBoardApp.Application;
+using MessageBoardApp.Application.Domain.Repositories;
+using MessageBoardApp.Application.WebSockets;
 using MessageBoardApp.Application.Service.CQRS;
 using MessageBoardApp.Infrastructure.Contexts;
 using MessageBoardApp.Infrastructure.Repositories;

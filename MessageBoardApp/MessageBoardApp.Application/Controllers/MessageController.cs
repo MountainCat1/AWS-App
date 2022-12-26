@@ -1,21 +1,21 @@
 ﻿using System.Net.WebSockets;
 using System.Text;
-using AppApi.WebSockets;
 using MediatR;
 using MessageBoardApp.Application.Service.CQRS.Commands.CreateBoardMessage;
 using MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
 using MessageBoardApp.Application.Service.Dtos;
+using MessageBoardApp.Application.WebSockets;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AppApi.Controllers;
+namespace MessageBoardApp.Application.Controllers;
 
 [ApiController]
 [Route("board")]
 public class MessageController : Controller
 {
-    private IMediator _mediator;
-    private ILogger<MessageController> _logger;
-    private MessageWebSocketHandler _messageWebSocketHandler;
+    private readonly IMediator _mediator;
+    private readonly ILogger<MessageController> _logger;
+    private readonly MessageWebSocketHandler _messageWebSocketHandler;
 
     public MessageController(
         IMediator mediator,

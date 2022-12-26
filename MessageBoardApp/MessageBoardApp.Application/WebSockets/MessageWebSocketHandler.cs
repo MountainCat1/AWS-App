@@ -1,11 +1,11 @@
 ﻿using System.Net.WebSockets;
 using WebSocketHandlerCore;
 
-namespace AppApi.WebSockets;
+namespace MessageBoardApp.Application.WebSockets;
 
 public class MessageWebSocketHandler : WebSocketHandler
 {
-    private ILogger<MessageWebSocketHandler> _logger;
+    private readonly ILogger<MessageWebSocketHandler> _logger;
 
     public MessageWebSocketHandler(WebSocketConnectionManager webSocketConnectionManager, ILogger<MessageWebSocketHandler> logger) : base(webSocketConnectionManager)
     {
