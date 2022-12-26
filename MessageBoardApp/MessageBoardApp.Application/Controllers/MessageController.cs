@@ -6,7 +6,7 @@ using MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
 using MessageBoardApp.Application.Service.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MessageBoard.Controllers;
+namespace AppApi.Controllers;
 
 [ApiController]
 [Route("board")]

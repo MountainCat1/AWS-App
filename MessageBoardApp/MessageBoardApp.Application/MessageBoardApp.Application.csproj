@@ -24,6 +24,7 @@
     <ItemGroup>
       <ProjectReference Include="..\MessageBoardApp.Infrastructure\MessageBoardApp.Infrastructure.csproj" />
       <ProjectReference Include="..\MessageBoardApp.Application.Service\MessageBoardApp.Application.Service.csproj" />
+      <ProjectReference Include="..\WebSocketHandlerCore\WebSocketHandlerCore.csproj" />
     </ItemGroup>
 
 </Project>

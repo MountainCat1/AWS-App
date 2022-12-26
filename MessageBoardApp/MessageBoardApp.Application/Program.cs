@@ -1,10 +1,11 @@
-using MessageBoard;
-using MessageBoard.Domain.Repositories;
+using AppApi;
+using AppApi.Domain.Repositories;
 using MessageBoardApp.Application.Service.CQRS;
 using MessageBoardApp.Infrastructure.Contexts;
 using MessageBoardApp.Infrastructure.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using WebSocketHandlerCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ var services = builder.Services;
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
+
+services.AddTransient<WebSocketManager>();
 
 if (builder.Environment.IsDevelopment())
     services.AddDbContext<MessageDbContext>(options => options.UseInMemoryDatabase("BaseDatabase"));
@@ -43,6 +46,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseWebSockets();
+
+app.MapWebSocketManager("/ws/", app.Services.GetRequiredService<WebSocketHandler>());
 
 app.UseCors(x => x
     .WithOrigins(Environment.GetEnvironmentVariable("ASPNETCORE_ALLOWED_ORIGINS")?.Split(";") ?? Array.Empty<string>())

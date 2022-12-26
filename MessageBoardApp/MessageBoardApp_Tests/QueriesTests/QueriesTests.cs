@@ -1,5 +1,5 @@
-﻿using MessageBoard.Domain.Entities;
-using MessageBoard.Domain.Repositories;
+﻿using AppApi.Domain.Entities;
+using AppApi.Domain.Repositories;
 using AutoMapper;
 using MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
 using MessageBoardApp_Tests.Mockups;

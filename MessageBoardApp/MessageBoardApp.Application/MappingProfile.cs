@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using MessageBoard.Domain.Entities;
+﻿using AppApi.Domain.Entities;
+using AutoMapper;
 using MessageBoardApp.Application.Service.Dtos;
 
-namespace MessageBoard;
+namespace AppApi;
 
 public class MappingProfile : Profile
 {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using MessageBoard.Domain.Abstractions;
+using AppApi.Domain.Abstractions;
 
-namespace MessageBoard.Domain.Entities;
+namespace AppApi.Domain.Entities;
 
 public class BoardMessageEntity : IEntity
 {

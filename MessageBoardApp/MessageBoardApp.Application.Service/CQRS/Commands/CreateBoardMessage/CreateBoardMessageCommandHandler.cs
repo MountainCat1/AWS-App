@@ -1,5 +1,5 @@
-﻿using MessageBoard.Domain.Entities;
-using MessageBoard.Domain.Repositories;
+﻿using AppApi.Domain.Entities;
+using AppApi.Domain.Repositories;
 using AutoMapper;
 using MediatR;
 using MessageBoardApp.Application.Service.Abstractions;
