@@ -1,9 +1,9 @@
-using AppApi;
-using AppApi.Domain.Repositories;
-using MediatR;
+using MessageBoard;
+using MessageBoard.Domain.Repositories;
 using MessageBoardApp.Application.Service.CQRS;
 using MessageBoardApp.Infrastructure.Contexts;
 using MessageBoardApp.Infrastructure.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,4 +1,4 @@
-﻿using AppApi;
+﻿using MessageBoard;
 using AutoMapper;
 
 namespace MessageBoardApp_Tests.Mockups;
