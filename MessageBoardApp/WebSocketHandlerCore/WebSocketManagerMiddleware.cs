@@ -21,7 +21,7 @@ public class WebSocketManagerMiddleware
             return;
 
         var socket = await context.WebSockets.AcceptWebSocketAsync();
-        await _webSocketHandler.OnConnected(socket);
+        await _webSocketHandler.OnConnectedAsync(socket);
 
         await Receive(socket, async (result, buffer) =>
         {
@@ -33,7 +33,7 @@ public class WebSocketManagerMiddleware
             
             if (result.MessageType == WebSocketMessageType.Close)
             {
-                await _webSocketHandler.OnDisconnected(socket);
+                await _webSocketHandler.OnDisconnectedAsync(socket);
                 return;
             }
         });
