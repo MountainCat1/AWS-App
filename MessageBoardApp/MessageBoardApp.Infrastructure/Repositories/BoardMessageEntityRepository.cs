@@ -1,5 +1,5 @@
-﻿using AppApi.Domain.Entities;
-using AppApi.Domain.Repositories;
+﻿using MessageBoardApp.Application.Domain.Entities;
+using MessageBoardApp.Application.Domain.Repositories;
 using MessageBoardApp.Infrastructure.Contexts;
 using MessageBoardApp.Infrastructure.Generics;
 

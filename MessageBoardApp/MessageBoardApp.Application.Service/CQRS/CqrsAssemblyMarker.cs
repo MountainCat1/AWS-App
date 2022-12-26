@@ -1,4 +1,4 @@
-﻿namespace AppApi.CQRS;
+﻿namespace MessageBoardApp.Application.Service.CQRS;
 
 public class CqrsAssemblyMarker
 {

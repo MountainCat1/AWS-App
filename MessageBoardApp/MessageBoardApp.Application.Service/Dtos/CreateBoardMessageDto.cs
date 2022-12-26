@@ -1,4 +1,4 @@
-﻿namespace AppApi.Dtos;
+﻿namespace MessageBoardApp.Application.Service.Dtos;
 
 public class CreateBoardMessageDto
 {
