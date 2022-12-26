@@ -7,12 +7,12 @@ interface BoardMessageListItemProps {
 
 export default function BoardMessageListItem(props : BoardMessageListItemProps){
 
-    const xd = new Date(Date.parse(props.dto.postTime));
+    const date = new Date(Date.parse(props.dto.postTime));
 
     return (<div className={'board-message-list-item'}>
         {props.dto.text}
         <div className={'board-message-list-item-date'}>
-            {xd.getHours()}:{xd.getMinutes()}
+            {date.toISOString().substring(11, 19)}
         </div>
     </div>)
 }

@@ -7,17 +7,19 @@
 
 }
 .board-message-list-header {
+    position: relative;
+
     font-size: 30px;
     background-color: var(--color-1);
 
-    box-shadow: 0 20px 24px 0 rgba(0, 0, 0, 0.57);
+    box-shadow: 0 20px 24px 0 rgba(0, 0, 0, 0.3);
 
-    z-index: 10;
+    z-index: 2;
 }
 
 .board-message-list-body {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     height: 60vh;
 
@@ -32,10 +34,10 @@
     text-align: left;
 
     width: 20em;
-    height: 3em;
+    min-height: 3em;
     padding: 0.2em;
 
-    box-shadow: 0 20px 24px 0 rgba(0, 0, 0, 0.18);
+    border-top: dotted var(--color-2);
 }
 
 .board-message-list-item-date {
@@ -47,19 +49,4 @@
     display: flex;
     background-color: var(--color-3);
     padding: .4em;
-}
-.board-message-list-input {
-    width: 100%;
-
-
-    border: none;
-
-    font-family: "Net-Brown-Regular", serif;
-    outline: none;
-
-    font-size: 20px;
-}
-
-.board-message-list-input:focus {
-    border: none;
 }

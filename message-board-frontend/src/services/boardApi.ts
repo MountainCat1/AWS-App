@@ -15,7 +15,7 @@ export function useGetMessagesApi(): () => Promise<BoardMessageDto[]> {
     }
 }
 
-export function usePostMessagesApi(): (postData : CreateBoardMessageDto) => Promise<BoardMessageDto[]> {
+export function usePostMessagesApi(): (postData : CreateBoardMessageDto) => void {
     const apiUri = process.env.REACT_APP_API_URL;
     const endpoint = new URL('/board/post', apiUri).href
 
@@ -26,21 +26,15 @@ export function usePostMessagesApi(): (postData : CreateBoardMessageDto) => Prom
             body: JSON.stringify(postData)
         };
 
-        const response = await fetch(endpoint, requestOptions);
-        const responseJson = await response.json();
-
-        return await responseJson as BoardMessageDto[];
+        await fetch(endpoint, requestOptions);
     }
 }
 
 export function useMessageWebSocket(){
     const apiUri = process.env.REACT_APP_API_URL;
     const hostname = new URL('/board/post', apiUri).host;
-    console.log(hostname)
     const endpoint = `wss://${hostname}/ws`;
     const [socketUrl, ] = useState(endpoint);
-
-    console.log(endpoint)
 
     const {
         sendMessage,
