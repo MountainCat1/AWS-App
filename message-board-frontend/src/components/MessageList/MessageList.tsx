@@ -1,24 +1,31 @@
 import {useEffect, useState} from "react";
 import {BoardMessageDto} from "../../dto/boardMessage";
-import {useGetMessagesApi} from "../../services/boardApi";
+import {useGetMessagesApi, useMessageWebSocket} from "../../services/boardApi";
 import BoardMessageListItem from "../BoardMessageListItem/BoardMessageListItem";
 import './BoardMessageItemList.css';
 
 
 export default function (){
-
     const [messages, setMessages] = useState<Array<BoardMessageDto>>(new Array<BoardMessageDto>)
     const getMessagesFromApi = useGetMessagesApi();
+    const {
+        lastMessage,
+    } = useMessageWebSocket();
 
     const retrieveMessages = async () => {
         const retrievedMessages = await getMessagesFromApi();
-
+        messages.splice(0);
         setMessages(messages.concat(retrievedMessages));
     }
 
     useEffect( () => {
         retrieveMessages().then(_ => {})
     }, [])
+
+    useEffect(() => {
+        console.log('Got message')
+        retrieveMessages().then()
+    }, [lastMessage])
 
 
     return (<div className={'board-message-list'}>
