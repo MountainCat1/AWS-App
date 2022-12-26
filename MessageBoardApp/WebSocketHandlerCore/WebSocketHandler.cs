@@ -12,12 +12,12 @@ public abstract class WebSocketHandler
         WebSocketConnectionManager = webSocketConnectionManager;
     }
 
-    public virtual async Task OnConnected(WebSocket socket)
+    public virtual async Task OnConnectedAsync(WebSocket socket)
     {
         WebSocketConnectionManager.AddSocket(socket);
     }
 
-    public virtual async Task OnDisconnected(WebSocket socket)
+    public virtual async Task OnDisconnectedAsync(WebSocket socket)
     {
         await WebSocketConnectionManager.RemoveSocket(WebSocketConnectionManager.GetId(socket));
     }

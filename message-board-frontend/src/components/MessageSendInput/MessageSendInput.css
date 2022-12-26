@@ -1,0 +1,16 @@
+
+.board-message-list-input {
+    width: 100%;
+
+
+    border: none;
+
+    font-family: "Net-Brown-Regular", serif;
+    outline: none;
+
+    font-size: 20px;
+}
+
+.board-message-list-input:focus {
+    border: none;
+}

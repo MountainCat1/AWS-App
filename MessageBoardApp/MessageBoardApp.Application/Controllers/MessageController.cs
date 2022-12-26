@@ -33,6 +33,8 @@ public class MessageController : Controller
         var command = new CreateBoardMessageCommand(dto);
 
         await _mediator.Send(command);
+        
+        await _messageWebSocketHandler.SendMessageToAllAsync("new_message");
 
         return Ok();
     }
@@ -52,6 +54,6 @@ public class MessageController : Controller
     [HttpGet("update")]
     public async Task ReceiveMessageSocket()
     {
-        await _messageWebSocketHandler.SendMessageToAllAsync("SEX");
+        await _messageWebSocketHandler.SendMessageToAllAsync("new_message");
     }
 }
