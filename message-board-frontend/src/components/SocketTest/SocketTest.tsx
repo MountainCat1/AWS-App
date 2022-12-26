@@ -3,7 +3,7 @@ import useWebSocket from 'react-use-websocket';
 
 
 export default function () {
-    const [socketUrl, setSocketUrl] = useState('wss://localhost:7183/board/socket');
+    const [socketUrl, setSocketUrl] = useState('wss://localhost:7183/ws');
 
     const {
         sendMessage,
