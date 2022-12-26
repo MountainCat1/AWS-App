@@ -1,6 +1,6 @@
 ﻿using AppApi.Domain.Entities;
-using AppApi.Dtos;
 using AutoMapper;
+using MessageBoardApp.Application.Service.Dtos;
 
 namespace AppApi;
 

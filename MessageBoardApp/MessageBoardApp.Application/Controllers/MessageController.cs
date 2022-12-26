@@ -1,9 +1,9 @@
 ﻿using System.Net.WebSockets;
 using System.Text;
-using AppApi.CQRS.Commands.CreateBoardMessage;
-using AppApi.CQRS.Queries.GetAllBoardMessages;
-using AppApi.Dtos;
 using MediatR;
+using MessageBoardApp.Application.Service.CQRS.Commands.CreateBoardMessage;
+using MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
+using MessageBoardApp.Application.Service.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppApi.Controllers;

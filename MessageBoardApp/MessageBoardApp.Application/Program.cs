@@ -1,7 +1,7 @@
 using AppApi;
-using AppApi.CQRS;
 using AppApi.Domain.Repositories;
 using MediatR;
+using MessageBoardApp.Application.Service.CQRS;
 using MessageBoardApp.Infrastructure.Contexts;
 using MessageBoardApp.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;

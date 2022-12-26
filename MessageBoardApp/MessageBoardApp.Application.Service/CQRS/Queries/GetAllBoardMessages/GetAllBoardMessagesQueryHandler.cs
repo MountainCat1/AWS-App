@@ -1,9 +1,9 @@
-﻿using AppApi.Abstractions;
-using AppApi.Domain.Repositories;
-using AppApi.Dtos;
+﻿using AppApi.Domain.Repositories;
 using AutoMapper;
+using MessageBoardApp.Application.Service.Abstractions;
+using MessageBoardApp.Application.Service.Dtos;
 
-namespace AppApi.CQRS.Queries.GetAllBoardMessages;
+namespace MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
 
 public class GetAllBoardMessagesQueryHandler : IQueryHandler<GetAllBoardMessagesQuery, ICollection<BoardMessageDto>>
 {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace AppApi.Abstractions;
+namespace MessageBoardApp.Application.Service.Abstractions;
 
 public interface IQuery<out TResult> : IRequest<TResult>
 {

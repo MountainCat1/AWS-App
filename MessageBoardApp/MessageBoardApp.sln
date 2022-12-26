@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardApp.Infrastruct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardApp_Tests", "MessageBoardApp_Tests\MessageBoardApp_Tests.csproj", "{576967DA-2754-4843-B738-554C177B6EDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoardApp.Application.Service", "MessageBoardApp.Application.Service\MessageBoardApp.Application.Service.csproj", "{CBCACF75-ACB1-4B54-A027-55B3D2F95544}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{576967DA-2754-4843-B738-554C177B6EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{576967DA-2754-4843-B738-554C177B6EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{576967DA-2754-4843-B738-554C177B6EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCACF75-ACB1-4B54-A027-55B3D2F95544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCACF75-ACB1-4B54-A027-55B3D2F95544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCACF75-ACB1-4B54-A027-55B3D2F95544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCACF75-ACB1-4B54-A027-55B3D2F95544}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

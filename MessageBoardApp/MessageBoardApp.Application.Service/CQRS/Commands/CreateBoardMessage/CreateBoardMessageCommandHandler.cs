@@ -1,10 +1,10 @@
-﻿using AppApi.Abstractions;
-using AppApi.Domain.Entities;
+﻿using AppApi.Domain.Entities;
 using AppApi.Domain.Repositories;
 using AutoMapper;
 using MediatR;
+using MessageBoardApp.Application.Service.Abstractions;
 
-namespace AppApi.CQRS.Commands.CreateBoardMessage;
+namespace MessageBoardApp.Application.Service.CQRS.Commands.CreateBoardMessage;
 
 public class CreateBoardMessageCommandHandler : ICommandHandler<CreateBoardMessageCommand>
 {
