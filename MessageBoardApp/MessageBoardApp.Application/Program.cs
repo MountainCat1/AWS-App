@@ -1,5 +1,6 @@
 using AppApi;
 using AppApi.Domain.Repositories;
+using AppApi.WebSockets;
 using MessageBoardApp.Application.Service.CQRS;
 using MessageBoardApp.Infrastructure.Contexts;
 using MessageBoardApp.Infrastructure.Repositories;
@@ -17,7 +18,7 @@ services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 
-services.AddTransient<WebSocketManager>();
+services.AddWebSocketManager();
 
 if (builder.Environment.IsDevelopment())
     services.AddDbContext<MessageDbContext>(options => options.UseInMemoryDatabase("BaseDatabase"));
@@ -43,11 +44,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
-
 app.UseWebSockets();
 
-app.MapWebSocketManager("/ws/", app.Services.GetRequiredService<WebSocketHandler>());
+app.MapWebSocketManager("/ws", app.Services.GetRequiredService<MessageWebSocketHandler>());
+
+app.MapControllers();
 
 app.UseCors(x => x
     .WithOrigins(Environment.GetEnvironmentVariable("ASPNETCORE_ALLOWED_ORIGINS")?.Split(";") ?? Array.Empty<string>())

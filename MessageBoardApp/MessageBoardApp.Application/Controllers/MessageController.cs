@@ -1,5 +1,6 @@
 ﻿using System.Net.WebSockets;
 using System.Text;
+using AppApi.WebSockets;
 using MediatR;
 using MessageBoardApp.Application.Service.CQRS.Commands.CreateBoardMessage;
 using MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
@@ -14,11 +15,16 @@ public class MessageController : Controller
 {
     private IMediator _mediator;
     private ILogger<MessageController> _logger;
+    private MessageWebSocketHandler _messageWebSocketHandler;
 
-    public MessageController(IMediator mediator, ILogger<MessageController> logger)
+    public MessageController(
+        IMediator mediator,
+        ILogger<MessageController> logger,
+        MessageWebSocketHandler messageWebSocketHandler)
     {
         _mediator = mediator;
         _logger = logger;
+        _messageWebSocketHandler = messageWebSocketHandler;
     }
 
     [HttpPost("post")]
@@ -43,53 +49,9 @@ public class MessageController : Controller
     }
 
 
-    [HttpGet("socket")]
+    [HttpGet("update")]
     public async Task ReceiveMessageSocket()
     {
-        if (!HttpContext.WebSockets.IsWebSocketRequest)
-        {
-            Response.StatusCode = StatusCodes.Status400BadRequest;
-            return;
-            // return BadRequest("Request was not a Web Socket Request");
-        }
-
-        using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
-        await Echo(webSocket);
-        // return Ok();
-    }
-
-    private async Task Echo(WebSocket webSocket)
-    {
-        var buffer = new byte[1024 * 4];
-        
-        WebSocketReceiveResult receiveResult;
-        do
-        {
-            // receiveResult = await webSocket.ReceiveAsync(
-            //     new ArraySegment<byte>(buffer), CancellationToken.None);
-            //
-            // var arraySegment = new ArraySegment<byte>(buffer, 0, receiveResult.Count);
-
-            await Task.Delay(3000);
-
-            var input = "I WANT SEX";
-            var bytes = Encoding.UTF8.GetBytes(input);
-            var arraySegment = new ArraySegment<byte>(bytes);
-            
-            await webSocket.SendAsync(
-                bytes,
-                WebSocketMessageType.Text,
-                true,
-                CancellationToken.None);
-
-            var messageString = System.Text.Encoding.UTF8.GetString(arraySegment);
-            _logger.LogInformation("Got a message \"{0}\"", messageString);
-            //
-        } while (webSocket.State == WebSocketState.Open);
-
-        await webSocket.CloseAsync(
-            WebSocketCloseStatus.Empty,
-            null,
-            CancellationToken.None);
+        await _messageWebSocketHandler.SendMessageToAllAsync("SEX");
     }
 }

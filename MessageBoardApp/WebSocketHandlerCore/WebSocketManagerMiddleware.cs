@@ -3,11 +3,10 @@ using Microsoft.AspNetCore.Http;
 
 namespace WebSocketHandlerCore;
 
-public class WebSocketManagerMiddleware : IMiddleware
+public class WebSocketManagerMiddleware
 {
     private readonly RequestDelegate _next;
-    
-    private readonly WebSocketHandler _webSocketHandler;
+    private WebSocketHandler _webSocketHandler;
 
     public WebSocketManagerMiddleware(RequestDelegate next,
         WebSocketHandler webSocketHandler)
@@ -16,8 +15,7 @@ public class WebSocketManagerMiddleware : IMiddleware
         _webSocketHandler = webSocketHandler;
     }
 
-    
-    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+    public async Task Invoke(HttpContext context)
     {
         if (!context.WebSockets.IsWebSocketRequest)
             return;
@@ -32,6 +30,7 @@ public class WebSocketManagerMiddleware : IMiddleware
                 await _webSocketHandler.ReceiveAsync(socket, result, buffer);
                 return;
             }
+            
             if (result.MessageType == WebSocketMessageType.Close)
             {
                 await _webSocketHandler.OnDisconnected(socket);
@@ -39,7 +38,7 @@ public class WebSocketManagerMiddleware : IMiddleware
             }
         });
     }
-    
+
     private async Task Receive(WebSocket socket, Action<WebSocketReceiveResult, byte[]> handleMessage)
     {
         var buffer = new byte[1024 * 4];
@@ -52,6 +51,4 @@ public class WebSocketManagerMiddleware : IMiddleware
             handleMessage(result, buffer);
         }
     }
-
-    
 }
