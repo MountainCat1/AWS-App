@@ -1,4 +1,4 @@
-﻿using MessageBoardApp.Application.Domain.Entities;
+﻿using MessageBoardApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MessageBoardApp.Infrastructure.Contexts;

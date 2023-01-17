@@ -2,6 +2,7 @@
 using System.Text;
 using MediatR;
 using MessageBoardApp.Application.Service.CQRS.Commands.CreateBoardMessage;
+using MessageBoardApp.Application.Service.CQRS.Queries.FetchBoardMessages;
 using MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
 using MessageBoardApp.Application.Service.Dtos;
 using MessageBoardApp.Application.WebSockets;
@@ -45,6 +46,16 @@ public class MessageController : Controller
     {
         var query = new GetAllBoardMessagesQuery();
 
+        var queryResult = await _mediator.Send(query);
+
+        return Ok(queryResult);
+    }
+
+    [HttpGet("fetch")]
+    public async Task<IActionResult> FetchMessages()
+    {
+        var query = new FetchBoardMessagesQuery();
+        
         var queryResult = await _mediator.Send(query);
 
         return Ok(queryResult);

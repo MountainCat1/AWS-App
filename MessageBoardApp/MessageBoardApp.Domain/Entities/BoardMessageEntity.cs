@@ -1,13 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using MessageBoardApp.Application.Domain.Abstractions;
+using MessageBoardApp.Domain.Abstractions;
 
-namespace MessageBoardApp.Application.Domain.Entities;
+namespace MessageBoardApp.Domain.Entities;
 
-public class BoardMessageEntity : IEntity
+public class BoardMessageEntity : Entity
 {
-    [Key]
-    public Guid Guid { get; set; }
-
     public string Text { get; set; }
 
     public DateTime PostTime { get; set; }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using MessageBoardApp.Application.Domain.Entities;
 using MessageBoardApp.Application.Service.Dtos;
+using MessageBoardApp.Domain.Entities;
 
 namespace MessageBoardApp.Application;
 
