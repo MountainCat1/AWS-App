@@ -5,5 +5,5 @@ namespace MessageBoardApp.Domain.Events;
 
 public class MessageCreatedDomainEvent : IDomainEvent
 {
-    public IEntity Entity { get; set; }
+    public BoardMessageEntity Entity { get; set; }
 }

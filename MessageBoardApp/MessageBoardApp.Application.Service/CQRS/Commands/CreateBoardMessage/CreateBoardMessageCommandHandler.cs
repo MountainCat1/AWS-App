@@ -29,8 +29,10 @@ public class CreateBoardMessageCommandHandler : ICommandHandler<CreateBoardMessa
 
         await _boardMessageRepository.CreateAsync(entity);
 
-
-        entity.AddDomainEvent(new MessageCreatedDomainEvent());
+        entity.AddDomainEvent(new MessageCreatedDomainEvent()
+        {
+            Entity = entity
+        });
 
         await _boardMessageRepository.SaveChangesAsync();
         

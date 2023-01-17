@@ -2,7 +2,7 @@
 
 namespace MessageBoardApp.Domain.Abstractions;
 
-public interface IDomainEventHandler<in T, TEntity> : INotificationHandler<T>
-    where T : IDomainEvent<TEntity> where TEntity : IEntity
+public interface IDomainEventHandler<in T> : INotificationHandler<T>
+    where T : IDomainEvent
 {
 }

@@ -22,7 +22,7 @@ public static class MediaRExtensions
     {
         foreach (var domainEvent in entity.DomainEvents)
         {
-            mediator.Send(domainEvent);
+            mediator.Publish(domainEvent);
         }
     }
 }
