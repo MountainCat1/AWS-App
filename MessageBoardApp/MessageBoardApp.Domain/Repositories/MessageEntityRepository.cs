@@ -1,7 +1,7 @@
-﻿using MessageBoardApp.Application.Domain.Abstractions;
-using MessageBoardApp.Application.Domain.Entities;
+﻿using MessageBoardApp.Domain.Abstractions;
+using MessageBoardApp.Domain.Entities;
 
-namespace MessageBoardApp.Application.Domain.Repositories;
+namespace MessageBoardApp.Domain.Repositories;
 
 public interface IBoardMessageRepository :  IRepository<BoardMessageEntity>
 {

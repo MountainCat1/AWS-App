@@ -1,7 +1,7 @@
-﻿using MessageBoardApp.Application.Domain.Repositories;
-using AutoMapper;
+﻿using AutoMapper;
 using MessageBoardApp.Application.Service.Abstractions;
 using MessageBoardApp.Application.Service.Dtos;
+using MessageBoardApp.Domain.Repositories;
 
 namespace MessageBoardApp.Application.Service.CQRS.Queries.GetAllBoardMessages;
 

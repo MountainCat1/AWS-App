@@ -1,8 +1,8 @@
-﻿using MessageBoardApp.Application.Domain.Entities;
-using MessageBoardApp.Application.Domain.Repositories;
-using AutoMapper;
+﻿using AutoMapper;
 using MessageBoardApp.Application.Service.CQRS.Commands.CreateBoardMessage;
 using MessageBoardApp.Application.Service.Dtos;
+using MessageBoardApp.Domain.Entities;
+using MessageBoardApp.Domain.Repositories;
 using MessageBoardApp_Tests.Mockups;
 using NSubstitute;
 

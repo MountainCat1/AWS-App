@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace MessageBoardApp.Application.Domain.Abstractions;
+namespace MessageBoardApp.Domain.Abstractions;
 
 
 public interface IRepository

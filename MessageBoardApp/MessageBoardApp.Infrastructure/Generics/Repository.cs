@@ -1,5 +1,7 @@
 ﻿using System.Linq.Expressions;
-using MessageBoardApp.Application.Domain.Abstractions;
+using MediatR;
+using MessageBoardApp.Domain.Abstractions;
+using MessageBoardApp.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace MessageBoardApp.Infrastructure.Generics;
@@ -8,12 +10,18 @@ public class Repository<TEntity, TDbContext> : IRepository<TEntity>
     where TEntity : class, IEntity
     where TDbContext : DbContext
 {
+    private readonly TDbContext _dbContext;
     private readonly DbSet<TEntity> _dbSet;
     private readonly Func<Task> _saveChangesAsyncDelegate;
 
+    private readonly IMediator _mediator;
 
-    public Repository(TDbContext dbContext)
+
+    public Repository(TDbContext dbContext, IMediator mediator)
     {
+        _dbContext = dbContext;
+        _mediator = mediator;
+        
         _dbSet = dbContext.Set<TEntity>();
 
         _saveChangesAsyncDelegate = async () =>
@@ -118,6 +126,8 @@ public class Repository<TEntity, TDbContext> : IRepository<TEntity>
 
     public virtual async Task SaveChangesAsync()
     {
+        _mediator.DispatchDomainEvents(_dbContext);
+        
         await _saveChangesAsyncDelegate();
     }
 }

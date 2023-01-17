@@ -1,8 +1,12 @@
-﻿using MessageBoardApp.Application.Domain.Entities;
-using MessageBoardApp.Application.Domain.Repositories;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using MessageBoardApp.Application.Service.Abstractions;
+using MessageBoardApp.Application.Service.Dtos;
+using MessageBoardApp.Domain.Abstractions;
+using MessageBoardApp.Domain.Entities;
+using MessageBoardApp.Domain.Events;
+using MessageBoardApp.Domain.Repositories;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace MessageBoardApp.Application.Service.CQRS.Commands.CreateBoardMessage;
 
@@ -24,6 +28,9 @@ public class CreateBoardMessageCommandHandler : ICommandHandler<CreateBoardMessa
         entity.PostTime = DateTime.Now;
 
         await _boardMessageRepository.CreateAsync(entity);
+
+
+        entity.AddDomainEvent(new MessageCreatedDomainEvent());
 
         await _boardMessageRepository.SaveChangesAsync();
         
